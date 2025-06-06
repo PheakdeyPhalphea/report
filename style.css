@@ -22,7 +22,7 @@ body {
     display: flex;
     justify-content: space-between;
 }
-#contentHeader1 {
+#contentHeader{
     color: red;
     font-weight: bold;
     text-decoration: underline;
