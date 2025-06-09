@@ -1,39 +1,291 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<div id="footer" data-sysreptor-generated="page-footer">
+  <div id="footer-left">CONDFIDENTIAL|REPORT</div>
+</div>
+
 <body>
-    <!-- cover -->
-     <section id="cover_page">
-        <div><img src="https://morozzi.com/img/client/apd.png" /></div>
-        <h1>Penetration Test Report</h1>
-        <p>Call Center Management System (CCMS)</p>
-        <p>Date: 28-May-2025</p>
-     </section>
+  <!-- cover -->
+  <section id="page-cover" data-sysreptor-generated="page-cover">
+    <div class="content">
+      <div>
+        <img src="/assets/name/logo.png" alt="apd logo" />
+      </div>
+      <h1 style="font-size: 30px"> Penetration Test Report</h1>
+      <p style="font-size: 22px">{{report.title_project}}</p>
+    </div>
+    <p class="report_date">Date: {{report.Date}}</p>
 
-     <!-- page 1 -->
-    <section id="page1">
-        <!-- header  -->
-        <div id="header">
-            <p>Information Technology | Cyber Security</p>
-            <p>Pentration Test Report - CCMS </p>
-        </div>
+  </section>
+  <pagebreak />
 
-        <!-- content header 1 -->
-        <p id="contentHeader">Confidentiality Notice</p>
-        <p>This report contain sensitive, privilegd, and confidential information. Precautions should be taken to protect the confidentiaity of the information contained herein, Unauthorized discolsure, copying, distribution, or use of this report is strictly prohibited and may result in legal or disciplinary action. Any punlication or dissemination of this report without prior written consent from APD Bank may cause reputational damage and undermine the integrity of its operations, if you are not the intended recipient, please notify the sender immediately and delete all copies of this document. </p>
-        <!-- content header 2 -->
-         <p id="contentHeader">Disclaimer</p>
-        <p>
-            Not the this penetration testing may not disclose all vulnerablities that are present on the systems within the scope of the engagement. This report is a summary of the findings from a "point-in-time" assessment made on APD Bank's enivornment. Any change made to the environment during the period of testing may affect the result of the penetration test.
-        </p> 
-        
-    </section>
+  <!-- page 1 -->
+  <section id="page1">
+    <!-- header  -->
+    <div id="header">
+      <p>Information Technology | Cyber Security</p>
+      <p>Pentration Test Report - CCMS</p>
+    </div>
 
+    <!-- content header 1 -->
+    <p style="font-size: 11px" id="contenther">Confidentiality Notice</p>
+    <p style="font-size: 11px">
+      {{report.confident_notice}}
+    </p>
+    <!-- content header 2 -->
+    <p style="font-size: 11px" id="contenther">Disclaimer</p>
+    <p style="font-size: 11px">
+      {{report.disclaimer}}
+    </p>
+  </section>
+
+  <pagebreak />
+  <!-- page 2 -->
+
+  <section id="page2">
+    <!-- header  -->
+    <div id="header">
+      <p>Information Technology | Cyber Security</p>
+      <p>Pentration Test Report - CCMS</p>
+    </div>
+
+    <!-- content table header 1 -->
+    <table id="table1" style="font-size: 11px">
+      <tr>
+        <th>Reference</th>
+        <td>{{report.reference_No}}</td>
+      </tr>
+      <tr>
+        <th>Document Title</th>
+        <td>{{report.title_project}}</td>
+      </tr>
+      <tr>
+        <th>Objective</th>
+        <td>
+          {{report.objective}}
+        </td>
+      </tr>
+      <tr>
+        <th>Report Date</th>
+        <td>{{report.Date}}</td>
+      </tr>
+      <tr>
+        <th>Prepared By</th>
+        <td>Cyber Security Unit</td>
+      </tr>
+    </table>
+
+    <p style="font-weight: bold; font-size: 12px">Approval Information:</p>
+
+    <table id="signature_table">
+      <colgroup>
+        <col style="width: 30%" />
+        <!-- Functional Role -->
+        <col style="width: 40%" />
+        <!-- Name/Position -->
+        <col style="width: 15%" />
+        <!-- Signature -->
+        <col style="width: 15%" />
+        <!-- Date -->
+      </colgroup>
+      <tr style="background: rgb(0, 112, 192); color: white">
+        <th>Functional Role</th>
+        <th>Name/Position</th>
+        <th>Signature</th>
+        <th>Date</th>
+      </tr>
+      <!-- penetration -->
+      <tr>
+        <td colspan="4" style="font-weight: bold; padding: 7px 0 7px 3px">
+          Penetration Tester
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: left ; font-weight: bold;">Tested by</td>
+        <td>
+          {{report.test_by}} <br />
+          {{report.test_by_role}}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left ; font-weight: bold;">Verified by</td>
+        <td>
+          {{report.verified_by}} <br />
+          {{report.verified_by_role}}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left ; font-weight: bold;">Reviewed by</td>
+        <td>
+          {{report.reviewed_by}} <br />
+          {{report.reviewed_by_role}}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left ; font-weight: bold;">Acknowledge by</td>
+        <td>
+          {{report.acknowledged_by}} <br />
+          {{report.acknowledged_by_role}}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left ; font-weight: bold;">Approved by</td>
+        <td>
+          {{report.approved_by}} <br />
+          {{report.approved_by_role}}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <!-- Techical Owner section -->
+      <tr>
+        <td colspan="4" style="font-weight: bold; padding: 7px 0 7px 3px">
+          Technical Owner
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: left ; font-weight: bold;">Processed by</td>
+        <td>
+          {{report.processed_by}} <br />
+          {{report.processed_by_role}}
+        </td>
+        <td></td>
+        <td></td>
+        <!-- review by -->
+      </tr>
+      <tr>
+        <td rowspan="2" style="text-align: left; font-weight: bold">
+          Reviewed by
+        </td>
+        <td>
+          {{report.reviewed_by_p1}}<br />
+          {{report.reviewed_by_p1_role}}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          {{report.reviewed_by_p2}} <br />
+          {{report.reviewed_by_p2_role}}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <!-- Acknowledge by -->
+      <tr>
+        <td style="text-align: left ; font-weight: bold;">Acknowledge by</td>
+        <td>
+          {{report.acknowledged_by}} <br />
+          {{report.acknowledged_by_role}}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+
+
+    </table>
+  </section>
+
+  <pagebreak />
+
+  <!-- page 3 -->
+  <section id="page3">
+    <!-- header  -->
+    <div id="header">
+      <p>Information Technology | Cyber Security</p>
+      <p>Pentration Test Report - CCMS</p>
+    </div>
+
+    <!-- content -->
+
+<table-of-contents id="toc" v-slot="tocItems">
+    <h1>Table of Contents</h1>
+    <ul>
+        <li v-for="item in tocItems" :class="'toc-level' + item.level">
+            <ref :to="item.id" />
+        </li>
+    </ul>
+  
+</table-of-contents>
+
+
+  </section>
+  <pagebreak />
+
+  <!-- page 4 executive summary  -->
+  <section id="page4">
+    <!-- header  -->
+    <div id="header">
+      <p>Information Technology | Cyber Security</p>
+      <p>Pentration Test Report - CCMS</p>
+    </div>
+    <!-- content -->
+    <p style="font-size: 12px; font-weight: bold">1. Executive Summary</p>
+    <p style="font-size: 11px;">
+      The first objective of {{report.executive_content}} penetration testing is to help the bank to address the exploitable vulnerability existing on the application and to comply with government, industry, or standards, which inclide the carrying out of Security assessments.
+    </p>
+    <p style="font-size: 11px;">There are {{report.Vuln_Founded}} UNQUE vulnerability that have been found during penetration testing</p>
+     <table id="servrity_table" style="width: 100%; text-align: center;">
+          <tr>
+            <th rowspan="2">Severity</th>
+            <th rowspan="2" >Count</th>
+            <th colspan="2" >Status</th>
+          </tr>
+          <tr>
+            <th>Opened</th>
+            <th>Closed</th>
+          </tr>
+          <tr>
+            <td style="background-color: rgb(192, 0, 0); color: white; padding: 3px; ">Critical</td>
+            <td v-for="(item, index) in report.VulnFoundCtritical" :key="index" >
+              {{item}}
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: rgb(255, 0, 0); color: white; padding: 3px;">Hight</td>
+           <td v-for="(item, index) in report.VulnFoundHigh" :key="index" >
+              {{item}}
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: rgb(255, 192, 0); color: white; padding: 3px;">medium</td>
+            <td v-for="(item, index) in report.VulnFoundMedium" :key="index" >
+              {{item}}
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: rgb(0, 176,86); color: white; padding: 3px;">Low</td>
+           <td v-for="(item, index) in report.VulnFoundLow" :key="index" >
+              {{item}}
+            </td>
+          </tr>
+      </table>
+      <p style="font-size: 11px">Full details of our findings are found in the Finding Details section of the report, the following is an executive level summary of issues found:</p>
+      <!-- table vuln -->
+       <table id="vuln_table" style="width: 100%">
+          <tr style="background-color: rgb(0, 112, 192); color: white; text-align: center ">
+            <th>No</th>
+            <th>vulnerability Name</th>
+            <th>Severity</th>
+            <th>Status</th>
+            <th>Remark</th>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+      </table>
+
+  </section>
+
+  <pagebreak />
 
 </body>
-</html>
+
+
