@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 <div id="footer" data-sysreptor-generated="page-footer">
   <div id="footer-left">CONDFIDENTIAL|REPORT</div>
 </div>
@@ -9,11 +16,10 @@
       <div>
         <img src="/assets/name/logo.png" alt="apd logo" />
       </div>
-      <h1 style="font-size: 30px"> Penetration Test Report</h1>
+      <h1 style="font-size: 30px">Penetration Test Report</h1>
       <p style="font-size: 22px">{{report.title_project}}</p>
     </div>
     <p class="report_date">Date: {{report.Date}}</p>
-
   </section>
   <pagebreak />
 
@@ -27,14 +33,10 @@
 
     <!-- content header 1 -->
     <p style="font-size: 11px" id="contenther">Confidentiality Notice</p>
-    <p style="font-size: 11px">
-      {{report.confident_notice}}
-    </p>
+    <p style="font-size: 11px">{{report.confident_notice}}</p>
     <!-- content header 2 -->
     <p style="font-size: 11px" id="contenther">Disclaimer</p>
-    <p style="font-size: 11px">
-      {{report.disclaimer}}
-    </p>
+    <p style="font-size: 11px">{{report.disclaimer}}</p>
   </section>
 
   <pagebreak />
@@ -59,9 +61,7 @@
       </tr>
       <tr>
         <th>Objective</th>
-        <td>
-          {{report.objective}}
-        </td>
+        <td>{{report.objective}}</td>
       </tr>
       <tr>
         <th>Report Date</th>
@@ -99,7 +99,7 @@
         </td>
       </tr>
       <tr>
-        <td style="text-align: left ; font-weight: bold;">Tested by</td>
+        <td style="text-align: left; font-weight: bold">Tested by</td>
         <td>
           {{report.test_by}} <br />
           {{report.test_by_role}}
@@ -108,7 +108,7 @@
         <td></td>
       </tr>
       <tr>
-        <td style="text-align: left ; font-weight: bold;">Verified by</td>
+        <td style="text-align: left; font-weight: bold">Verified by</td>
         <td>
           {{report.verified_by}} <br />
           {{report.verified_by_role}}
@@ -117,7 +117,7 @@
         <td></td>
       </tr>
       <tr>
-        <td style="text-align: left ; font-weight: bold;">Reviewed by</td>
+        <td style="text-align: left; font-weight: bold">Reviewed by</td>
         <td>
           {{report.reviewed_by}} <br />
           {{report.reviewed_by_role}}
@@ -126,7 +126,7 @@
         <td></td>
       </tr>
       <tr>
-        <td style="text-align: left ; font-weight: bold;">Acknowledge by</td>
+        <td style="text-align: left; font-weight: bold">Acknowledge by</td>
         <td>
           {{report.acknowledged_by}} <br />
           {{report.acknowledged_by_role}}
@@ -135,9 +135,8 @@
         <td></td>
       </tr>
       <tr>
-        <td style="text-align: left ; font-weight: bold;">Approved by</td>
-        <td>
-          {{report.approved_by}} <br />
+       <td style="text-align: left; font-weight: bold">Approvaledby</td>
+        <td> {{report.approved_by}} <br />
           {{report.approved_by_role}}
         </td>
         <td></td>
@@ -150,7 +149,7 @@
         </td>
       </tr>
       <tr>
-        <td style="text-align: left ; font-weight: bold;">Processed by</td>
+        <td style="text-align: left; font-weight: bold">Processed by</td>
         <td>
           {{report.processed_by}} <br />
           {{report.processed_by_role}}
@@ -180,7 +179,7 @@
       </tr>
       <!-- Acknowledge by -->
       <tr>
-        <td style="text-align: left ; font-weight: bold;">Acknowledge by</td>
+        <td style="text-align: left; font-weight: bold">Acknowledge by</td>
         <td>
           {{report.acknowledged_by}} <br />
           {{report.acknowledged_by_role}}
@@ -188,8 +187,6 @@
         <td></td>
         <td></td>
       </tr>
-
-
     </table>
   </section>
 
@@ -205,17 +202,19 @@
 
     <!-- content -->
 
-<table-of-contents id="toc" v-slot="tocItems">
-    <h1>Table of Contents</h1>
-    <ul>
-        <li v-for="item in tocItems" :class="'toc-level' + item.level">
-            <ref :to="item.id" />
-        </li>
-    </ul>
-  
-</table-of-contents>
+   
+      <h1>Table of Contents</h1>
+      <pre>{{report.list_toc}}</pre>
+      <p v-for="(item, index) in report.list_toc" :key="index">
+          <p>{{item.content.name}}<span id="dot-leader">{{ item.content.page }}</span></p>
+          
+          <p style="padding-left: 15px;"  v-for="(item, index) in item.content.sub_content" :key="index">
+            {{item.name}} <span id="dot-leader">{{ item.page }}</span>
+          </p>
+         
+      </p>
 
-
+   
   </section>
   <pagebreak />
 
@@ -228,64 +227,277 @@
     </div>
     <!-- content -->
     <p style="font-size: 12px; font-weight: bold">1. Executive Summary</p>
-    <p style="font-size: 11px;">
-      The first objective of {{report.executive_content}} penetration testing is to help the bank to address the exploitable vulnerability existing on the application and to comply with government, industry, or standards, which inclide the carrying out of Security assessments.
+    <p style="font-size: 11px">
+      The first objective of {{report.executive_content}} penetration testing is
+      to help the bank to address the exploitable vulnerability existing on the
+      application and to comply with government, industry, or standards, which
+      inclide the carrying out of Security assessments.
     </p>
-    <p style="font-size: 11px;">There are {{report.Vuln_Founded}} UNQUE vulnerability that have been found during penetration testing</p>
-     <table id="servrity_table" style="width: 100%; text-align: center;">
-          <tr>
-            <th rowspan="2">Severity</th>
-            <th rowspan="2" >Count</th>
-            <th colspan="2" >Status</th>
-          </tr>
-          <tr>
-            <th>Opened</th>
-            <th>Closed</th>
-          </tr>
-          <tr>
-            <td style="background-color: rgb(192, 0, 0); color: white; padding: 3px; ">Critical</td>
-            <td v-for="(item, index) in report.VulnFoundCtritical" :key="index" >
-              {{item}}
-            </td>
-          </tr>
-          <tr>
-            <td style="background-color: rgb(255, 0, 0); color: white; padding: 3px;">Hight</td>
-           <td v-for="(item, index) in report.VulnFoundHigh" :key="index" >
-              {{item}}
-            </td>
-          </tr>
-          <tr>
-            <td style="background-color: rgb(255, 192, 0); color: white; padding: 3px;">medium</td>
-            <td v-for="(item, index) in report.VulnFoundMedium" :key="index" >
-              {{item}}
-            </td>
-          </tr>
-          <tr>
-            <td style="background-color: rgb(0, 176,86); color: white; padding: 3px;">Low</td>
-           <td v-for="(item, index) in report.VulnFoundLow" :key="index" >
-              {{item}}
-            </td>
-          </tr>
-      </table>
-      <p style="font-size: 11px">Full details of our findings are found in the Finding Details section of the report, the following is an executive level summary of issues found:</p>
-      <!-- table vuln -->
-       <table id="vuln_table" style="width: 100%">
-          <tr style="background-color: rgb(0, 112, 192); color: white; text-align: center ">
-            <th>No</th>
-            <th>vulnerability Name</th>
-            <th>Severity</th>
-            <th>Status</th>
-            <th>Remark</th>
-          </tr>
-          <tr>
-            <td></td>
-          </tr>
-      </table>
+    <p style="font-size: 11px">
+      There are {{report.Vuln_Founded}} UNQUE vulnerability that have been found
+      during penetration testing
+    </p>
+    <table id="servrity_table" style="width: 100%; text-align: center">
+      <tr>
+        <th rowspan="2">Severity</th>
+        <th rowspan="2">Count</th>
+        <th colspan="2">Status</th>
+      </tr>
+      <tr>
+        <th>Opened</th>
+        <th>Closed</th>
+      </tr>
+      <tr>
+        <td style="background-color: rgb(192, 0, 0); color: white; padding: 3px">
+          Critical
+        </td>
+        <td v-for="(item, index) in report.VulnFoundCtritical" :key="index">
+          {{item}}
+        </td>
+      </tr>
+      <tr>
+        <td style="background-color: rgb(255, 0, 0); color: white; padding: 3px">
+          Hight
+        </td>
+        <td v-for="(item, index) in report.VulnFoundHigh" :key="index">
+          {{item}}
+        </td>
+      </tr>
+      <tr>
+        <td style="background-color: rgb(255, 192, 0); color: white; padding: 3px">
+          medium
+        </td>
+        <td v-for="(item, index) in report.VulnFoundMedium" :key="index">
+          {{item}}
+        </td>
+      </tr>
+      <tr>
+        <td style="background-color: rgb(0, 176, 86); color: white; padding: 3px">
+          Low
+        </td>
+        <td v-for="(item, index) in report.VulnFoundLow" :key="index">
+          {{item}}
+        </td>
+      </tr>
+    </table>
+    <p style="font-size: 11px">
+      Full details of our findings are found in the Finding Details section of
+      the report, the following is an executive level summary of issues found:
+    </p>
+    <!-- table vuln -->
+    <table id="vuln_table" style="width: 100%">
+      <tr style="
+          background-color: rgb(0, 112, 192);
+          color: white;
+          text-align: center;
+        ">
+        <th>No</th>
+        <th>vulnerability Name</th>
+        <th>Severity</th>
+        <th>Status</th>
+        <th>Remark</th>
+      </tr>
+      <tr style="text-align: center" v-for="(item, index) in report.vuln_list" :key="index">
+        <td>{{item.No}}</td>
+        <td>{{item.Vuln_Name}}</td>
+        <td :class="{
+      'severity-low': item.Severity.toLowerCase() === 'low',
+      'severity-medium': item.Severity.toLowerCase() === 'medium',
+      'severity-high': item.Severity.toLowerCase() === 'high',
+      'severity-critical': item.Severity.toLowerCase() === 'critical'
+    }">
+          {{ item.Severity }}
+        </td>
+
+        <td :class="{ 
+                  'is_fixed': item.Status === true, 
+                  'is_not_fixed': item.Status === false 
+              }">
+          {{ item.Status === true ? 'Fixed' : 'Not Fixed' }}
+        </td>
+
+        <td>{{item.Remark}}</td>
+      </tr>
+    </table>
+    <p style="font-size: 12px; font-weight: bold;">1.1  Scope of Testing</p>
+    <p style="font-size: 11px"> The scope of pentration test was limited to the following target with {{report.approach}} approach testing.</p>
+    <!-- table scope testing -->
+     <table id="table_scope">
+      <tr style="  background-color: rgb(0, 112, 192);
+          color: white;
+          text-align: center;">
+        <th>N<sup style="font-size: 10px; text-decoration: underline;">o</sup></th>
+        <th>Function</th>
+        <th>Sub-Funtion</th>
+      </tr>
+      
+      <tr v-for="(item, index) in report.scope_testing" :key="index + '-group'">
+     <template v-for="(sub, subIndex) in item.sub_function" :key="index + '-' + subIndex">
+     <tr>
+      <td v-if="subIndex === 0" :rowspan="item.sub_function.length" style="text-align: center">
+        {{ item.No }}
+      </td>
+      <td v-if="subIndex === 0" :rowspan="item.sub_function.length">
+        {{ item.function_name }}
+      </td>
+      <td>{{ sub }}</td>
+     </tr>
+  
+  </template>
+</tr>
+
+    </table>
+
+   <!-- testing methodology -->
+    <p style="font-size: 12px; font-weight: bold">1.2.  Testing Methodology</p>
+    <p style="font-size: 11px">
+      Our penetration testing methodology is based on the approach outlined in
+      the OWASP Testing Guide, Open-Source Security Testing Methodology Manual
+      (OSSTMM) and Penetration Testing Execution Standard (PTES). Our testing
+      process includes but not limis to Recon, Mapping Vulnerability
+      Discovery, Vulnerability Exploitation, Result Analysis, and Reporting.
+    </p>
+  <pagebreak /> 
+    <!-- report time line -->
+    <p style="font-size: 12px; font-weight: bold">1.3.  Timeline</p>
+    <p style="font-size: 11px">
+      The penetration test was conducted between {{report.start_date}} - {{report.end_date}}.
+    </p>
+   
+    <!-- serverity levels -->
+    <p style="font-size: 12px; font-weight: bold">1.4.  Severity Levels</p>
+    <p style="font-size: 11px">
+      Common Vulnerabilies and Exposure (CVE) is glossary that classifies Vulnerabilies. The gloassary analyzes
+      vulnerabilies and then uses the Common Vulnerabilies Scoring System (CVSS) to evaluate the threat level of
+      vulnerability. A CVE score is often used for prioritizing the security of vulnerabilities.
+      </p>
+    <p style="font-size: 11px"> The CVSS is one of serveral ways to measure the impact of vulnerability and assign a
+      severity along a scale of 0 - 10.The current version of CVSS is 4.0v, which breaks down the scale as follows:</p>
+    
+    <table style="font-size: 11px" id="table_sererity_level">
+      <colgroup>
+     <col style="width: 80px; height: 50px;" />   <!-- Severity -->
+      <col style="width: 80px; height: 50px;" />    <!-- Base Score -->
+      <col />                         <!-- Definition (auto expand) -->
+    </colgroup>
+      <tr>
+        <th colspan="3"  style="background-color: rgb(0, 112, 192); text-align: center; color:white">Common Vulnerabilies Scoring
+          System (CVSS)</th>
+      </tr>
+     
+      <tr style="background-color: rgb(0, 112, 192); text-align: center; color:white">
+        <th>Severity</th>
+        <th>Base Score</th>
+        <th>Definition</th>
+      </tr>
+       <!-- critical row -->
+      <tr style="text-align: center;">
+        <td style="background-color: rgb(192, 0, 0); color: white; padding: 3px">Critical</td>
+        <td style="background-color: rgb(242, 242, 242); font-weight: bold">9.0-10.0</td>
+        <td style="background-color: rgb(242, 242, 242); text-align: left">Critical level risk exposure. Critical potential impact to confidentiality,integrity,and/ or availability.It requires immediate action attenion.</td>
+      </tr>
+      <!-- high row -->
+      <tr style="text-align: center;">
+        <td style="background-color: rgb(255, 0, 0); color: white; padding: 3px">High</td>
+        <td style="background-color: rgb(242, 242, 242); font-weight: bold">7.0-8.9</td>
+        <td style="background-color: rgb(242, 242, 242); text-align: left">High level risk exposure.High potential impact to confidentiality,integrity,and/ or availability. But It does not requires immediate action attenion. </td>
+      </tr>
+      <!-- medium row -->
+      <tr style="text-align: center;">
+        <td style="
+              background-color: rgb(255, 192, 0);
+              color: white;
+              padding: 3px;
+            ">Medium</td>
+        <td style="background-color: rgb(242, 242, 242); font-weight: bold">4.0-6.9</td>
+        <td style="background-color: rgb(242, 242, 242); text-align: left">Medium level risk exposure.Medium potential impact to confidentiality,integrity,and/ or availability.But It requires review action attention in near term.</td>
+      </tr>
+      <!-- low row -->
+      <tr style="text-align: center;">
+        <td style="
+              background-color: rgb(0, 176, 86);
+              color: white;
+              padding: 3px;
+            ">Low</td>
+        <td style="background-color: rgb(242, 242, 242); font-weight: bold">0.1-3.9</td>
+        <td style="background-color: rgb(242, 242, 242); text-align: left">Minimal or minor risk exposure and/or control improvement point. Low potential impact to confidentiality, integrity, and/or availability.To be reviewed and evaluated after other key issues are addressed.</td>
+      </tr>
+    </table>
 
   </section>
 
   <pagebreak />
+  
+  <section id="pag5">
+      <!-- header  -->
+    <div id="header">
+      <p>Information Technology | Cyber Security</p>
+      <p>Pentration Test Report - CCMS</p>
+    </div>
 
+    <!-- content -->
+    <!-- 2. Penetration Test Detail Report -->
+    <p style="font-size: 12px; font-weight: bold">2. Penetration Test Detail Report</p>
+    <p style="font-size: 11px;">The detailed findings and recommendations for {{report.title_project}} are listed below:</p>
+    <!-- 2.1. Penetration Test Detail Report -->
+    
+    <div v-for="(item, index) in report.finding" :key="index">
+      <p style="font-size: 12px; font-weight: bold">2.{{index + 1}}. {{item.finding_level}}</p>
+     <table id="finding_table">
+        <colgroup>
+       <col style="width: 30%; " />   
+      <col  />    
+    </colgroup>
+        <tr>
+          <td style="font-weight: bold;" colspan="2">{{item.finding_title}}</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">Description</td>
+          <td>{{item.description}}</td>
+        </tr>
+         <tr>
+          <td style="font-weight: bold;">Risks Type</td>
+          <td :class="{
+      'severity-low': (item.risk_level || '').toLowerCase() === 'low',
+  'severity-medium': (item.risk_level || '').toLowerCase() === 'medium',
+  'severity-high': (item.risk_level || '').toLowerCase() === 'high',
+  'severity-critical': (item.risk_level || '').toLowerCase() === 'critical'
+    }">
+          {{ item.risk_level }}
+            </td>
+        </tr>
+        <tr >
+          <td style="font-weight: bold;">Status</td>
+           <td :class="{ 
+                  'is_fixed': item.Status === true, 
+                  'is_not_fixed': item.Status === false 
+              }">
+          {{ item.Status === true ? 'Fixed' : 'Not Fixed' }}
+        </td>
+        </tr>
+        <tr >
+          <td style="font-weight: bold;">Affected Url</td>
+          <td>{{item.affect_url}}</td>
+        </tr>
+        <tr >
+          <td style="font-weight: bold;">Techical <br> Description</td>
+          <td style="padding: 5px 10px 5px 5.5px">{{item.poc.text_description}} 
+          <img style="border: 2px solid red; " :src="item.poc.img_url"  >
+           </td>
+          
+        </tr>
+        <tr >
+          <td style="font-weight: bold;">Impact</td>
+          <td>{{item.impact}}</td>
+        </tr>
+        <tr >
+          <td style="font-weight: bold;">Recommendation</td>
+          <td>{{item.recommendation}}</td>
+        </tr>
+       
+      </table>
+    </div>
+
+  </section>
 </body>
-
-
+</html>
